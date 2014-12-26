@@ -1,0 +1,83 @@
+<div class="container">
+    <div class="row clearfix">
+
+        <header>
+            <h3>Products</h3>
+        </header>
+
+        <div class="col-md-12 column">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="pull-right">
+                    <ul class="nav navbar-nav">
+                        <li><a data-ng-click="navigate('/products/0')"><span class="glyphicon glyphicon-plus"></span> Add Product</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <br />
+        <!-- Table row -->
+        <!--<div class="row clearfix">-->
+            <!--<div class="col-md-12 column">-->
+                <!--<table class="table">-->
+                    <!--<thead>-->
+                        <!--<tr>-->
+                        <!--<th>-->
+                            <!--#-->
+                        <!--</th>-->
+                        <!--<th>-->
+                            <!--Product title-->
+                        <!--</th>-->
+                        <!--<th>-->
+                            <!--Description-->
+                        <!--</th>-->
+                        <!--<th>-->
+                            <!--Price-->
+                        <!--</th>-->
+                        <!--<th>-->
+                            <!--Available Qty-->
+                        <!--</th>-->
+                    <!--</tr>-->
+                    <!--</thead>-->
+                    <!--<tbody>-->
+                    <!--<tr data-ng-repeat="product in products">-->
+                        <!--<td>-->
+                            <!--{{ product.id }}-->
+                        <!--</td>-->
+                        <!--<td>-->
+                            <!--{{ product.title }}-->
+                        <!--</td>-->
+                        <!--<td>-->
+                            <!--{{ product.desc }}-->
+                        <!--</td>-->
+                        <!--<td>-->
+                            <!--{{ product.price }}-->
+                        <!--</td>-->
+                        <!--<td>-->
+                            <!--{{ product.availableQty }}-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--</tbody>-->
+                <!--</table>-->
+            <!--</div>-->
+        <!--</div>-->
+
+
+        <!-- List group -->
+        <div class="col-md-12 column">
+            <div class="media" data-ng-repeat="product in products">
+                <a href="#/products/{{product.id}}" class="pull-left"><img src="http://lorempixel.com/64/64/" class="media-object img-rounded" alt='' /></a>
+
+                <span class="label label-primary pull-right"> Rs. {{ product.price }}</span>
+
+                <div class="media-body">
+                    <h4 class="media-heading">{{ product.title }} <small><i> in stock: {{ product.id }}</i></small></h4>
+                    <p>{{ product.desc }}</p>
+                </div>
+                <hr>
+            </div>
+        </div>
+
+    </div>
+</div>
+

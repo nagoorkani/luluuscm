@@ -1,0 +1,188 @@
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+        <header>
+            <h3><span class="glyphicon glyphicon-edit"></span> {{title}} Product</h3>
+        </header>
+        <form name="editForm" novalidate>
+            <div class="customerEdit">
+
+                <div class="row">
+                    <div class="col-md-2">
+                        Title:
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" name="title" class="form-control" data-ng-model="product.title" required />
+                        <span class="errorMessage" ng-show="editForm.title.$dirty && editForm.title.$invalid">
+                            Title is required
+                        </span>
+                    </div>
+                </div>
+                <br />
+
+                <div class="row">
+                    <div class="col-md-2">
+                        Description:
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" name="desc" class="form-control" data-ng-model="product.desc" required />
+                        <span class="errorMessage" ng-show="editForm.desc.$dirty && editForm.desc.$invalid">
+                            Description is required
+                        </span>
+                    </div>
+                </div>
+                <br />
+
+                <div class="row">
+                    <div class="col-md-2">
+                        Unit price:
+                    </div>
+                    <div class="col-md-10">
+                        <input type="price" name="unitPrice" class="form-control" data-ng-model="product.unitPrice" required />
+                        <span class="errorMessage" ng-show="editForm.unitPrice.$dirty && editForm.unitPrice.$invalid">
+                            Unit price is required
+                        </span>
+                    </div>
+                </div>
+                <br />
+
+                <div class="row">
+                    <div class="col-md-2">
+                        Dealer price:
+                    </div>
+                    <div class="col-md-10">
+                        <input type="price" name="dealerPrice" class="form-control" data-ng-model="product.dealerPrice" required />
+                        <span class="errorMessage" ng-show="editForm.dealerPrice.$dirty && editForm.dealerPrice.$invalid">
+                            Dealer price is required
+                        </span>
+                    </div>
+                </div>
+                <br />
+
+                <div class="row">
+                    <div class="col-md-2">
+                        Purchased unit:
+                    </div>
+                    <div class="col-md-10">
+                        <input type="number" name="purchasedUnit" class="form-control" data-ng-model="product.purchasedUnit" required />
+                        <span class="errorMessage" ng-show="editForm.purchasedUnit.$dirty && editForm.purchasedUnit.$invalid">
+                            Purchased unit is required
+                        </span>
+                    </div>
+                </div>
+                <br />
+
+                <div class="row">
+                    <div class="col-md-2">
+                        Purchased qty:
+                    </div>
+                    <div class="col-md-10">
+                        <input type="number" name="purchasedQty" class="form-control" data-ng-model="product.purchasedQty" required />
+                        <span class="errorMessage" ng-show="editForm.purchasedQty.$dirty && editForm.purchasedQty.$invalid">
+                            Purchased qty is required
+                        </span>
+                    </div>
+                </div>
+                <br />
+
+                <div class="row">
+                    <div class="col-md-2">
+                        Cash discount:
+                    </div>
+                    <div class="col-md-10">
+                        <input type="price" name="discountsCash" class="form-control" data-ng-model="product.discountsCash" />
+                    </div>
+                </div>
+                <br />
+
+                <div class="row">
+                    <div class="col-md-2">
+                        Other discount:
+                    </div>
+                    <div class="col-md-10">
+                        <input type="price" name="discountsOthers" class="form-control" data-ng-model="product.discountsOthers" />
+                    </div>
+                </div>
+                <br />
+
+                <div class="row" ng-controller="DatePickerController">
+                    <div class="col-md-2">
+                        Purchased date:
+                    </div>
+                    <div class="col-md-10">
+                        <p class="input-group">
+                            <input type="date" name="discountsOthers" class="form-control" data-ng-model="product.discountsOthers" />
+                            <!--<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />-->
+                            <!--<span class="input-group-btn">-->
+                                <!--<button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>-->
+                            <!--</span>-->
+                        </p>
+                    </div>
+                </div>
+                <br />
+
+                <div class="row">
+                    <div class="col-md-2">
+                        Product image:
+                    </div>
+                    <div class="col-md-10">
+                        <input type="file" accept="image/*" image="image2"
+                               resize-max-height="300"
+                               resize-max-width="250"
+                               resize-quality="0.7" />
+                        <img ng-show="image2" ng-src="{{image2.url}}" type="{{image2.file.type}}" />
+                    </div>
+                </div>
+                <br />
+
+                <!--<div class="row">-->
+                    <!--<div class="col-md-2">-->
+                        <!--Cash discounts:-->
+                    <!--</div>-->
+                    <!--<div class="col-md-10">-->
+                        <!--<input type="price" name="cashDiscount" class="form-control" data-ng-model="product.cashDiscount" required />-->
+                        <!--<span class="errorMessage" ng-show="editForm.cashDiscount.$dirty && editForm.cashDiscount.$invalid">-->
+                            <!--Cash discounts invalid-->
+                        <!--</span>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<br />-->
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary" data-ng-click="saveProduct()" ng-disabled="editForm.$invalid || !editForm.$dirty">{{buttonText}}</button>
+                        &nbsp;&nbsp;
+                        <button class="btn btn-danger" data-ng-if="product.id > 0" data-ng-click="deleteProduct()">Delete</button>
+                    </div>
+                </div>
+                <br />
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-success" data-ng-show="updateStatus">
+                        <span class="glyphicon glyphicon-thumbs-up icon-white"></span>&nbsp;&nbsp;Product updated!
+                    </div>
+                </div>
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-important" data-ng-show="errorMessage">
+                        <span class="glyphicon glyphicon-thumbs-down icon-white"></span>&nbsp;&nbsp;Error: {{ errorMessage }}
+                    </div>
+                </div>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+
+
+<!--product.title        = req_body.title;-->
+<!--product.desc         = req_body.desc;-->
+<!--product.date         = req_body.date;-->
+<!--product.unitPrice    = req_body.unitPrice;-->
+<!--product.dealerPrice  = req_body.dealerPrice;-->
+<!--product.availableQty = req_body.availableQty;-->
+<!--product.purchasedUnit   = req_body.purchasedUnit;-->
+<!--product.purchasedQty    = req_body.purchasedQty;-->
+<!--product.discountsCash   = req_body.discountsCash;-->
+<!--product.discountsOthers = req_body.discountsOthers;-->
+<!--product.image           = req_body.image;     //TODO: TBD-->

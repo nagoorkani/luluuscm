@@ -1,0 +1,11 @@
+{
+  "name": "luluu",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "~1.2.0",
+    "jquery": "~2.0.3",
+    "angular-route": "~1.2.0",
+    "mobile-angular-ui": "*",
+    "angular-animate": "*"
+  }
+}

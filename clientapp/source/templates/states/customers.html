@@ -1,0 +1,90 @@
+<!--<div class="customers view indent">-->
+    <!--<div class="container">-->
+        <!--<div class="navbar">-->
+            <!--<div yield-to="title" class="navbar-brand">-->
+                <!--<span>Customers</span>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="app-body">-->
+            <!--<div data-ng-repeat="customer in customers">-->
+                <!--<span>{{customer.name}}</span>-->
+                <!--<span>{{customer.business}}</span>-->
+                <!--<span>{{customer.address}}, {{customer.city}}</span>-->
+                <!--<span>{{customer.email}}</span>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="container">-->
+            <!--<div class="row">-->
+                <!--<div class="col-sm-6 col-md-3" data-ng-repeat="customer in customers">-->
+                    <!--<div><a href="#" class="white">{{customer.name}} <i class="icon-edit icon-white editIcon"></i></a></div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+    <!--</div>-->
+<!--</div>-->
+
+<div class="container">
+    <div class="row clearfix">
+
+        <header>
+            <h3>Customers</h3>
+        </header>
+
+        <div class="col-md-12 column">
+            <nav class="navbar navbar-default" role="navigation">
+                <ul class="nav navbar-nav">
+                    <li><a data-ng-click="navigate('/customers/0')"><span class="glyphicon glyphicon-plus"></span> Add Customer</a></li>
+                </ul>
+                <div class="pull-right">
+                    <form class="navbar-form" role="search">
+                        <div class="form-group">
+                            <input type="search" class="form-control" />
+                        </div>
+                    </form>
+                </div>
+            </nav>
+        </div>
+
+        <br />
+
+        <div>
+            <div class="col-sm-6 col-md-3" data-ng-repeat="customer in customers">
+                <div class="card">
+                    <div class="cardHeader1"><a href="#/customers/{{customer.customerId}}">{{customer.name}} <i class="icon-edit icon-white editIcon"></i></a></div>
+                    <div class="cardBody">
+                        <div class="clearfix">
+                            <strong>{{customer.business}}</strong><br>
+                            {{customer.city}}, {{customer.state}} <br>
+                            <p><a href="#" target="_blank" class="btn btn-info btn-xs">Orders (0)</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--<div class="container">-->
+    <!--<div class="row clearfix">-->
+        <!--<div class="col-md-12 column">-->
+            <!--<div class="media">-->
+                <!--<a href="#" class="pull-left"><img src="http://lorempixel.com/64/64/" class="media-object img-circle" alt='' /></a>-->
+                <!--<div class="media-body">-->
+                    <!--<h4 class="media-heading">Nested media heading</h4>-->
+                    <!--<p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>-->
+                    <!--<a href="#">Orders</a>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<!--<div class="row clearfix">-->
+    <!--<div class="col-md-12 column">-->
+        <!--<img alt="140x140" src="http://lorempixel.com/140/140/" class="img-circle" />-->
+    <!--</div>-->
+<!--</div>-->

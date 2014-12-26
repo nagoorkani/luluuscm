@@ -1,0 +1,76 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="modern" ng-app="luluuApp"> <!--<![endif]-->
+  <head >
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>luluu</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- TODO: styles/js used temporarily will moved to build folder -->
+    <!--<link rel="stylesheet" href="content/css/lib/lib.css">-->
+    <!--<link rel="stylesheet" href="content/css/main.css">-->
+
+      <!--<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet"/>-->
+
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+      <!-- Optional theme -->
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+      <link rel="stylesheet" href="content/css/styles.css">
+
+      <!-- Latest compiled and minified JavaScript -->
+      <!--<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>-->
+
+
+      <!--<link rel="stylesheet" href="css/lib/lib.css">-->
+    <!--<link rel="stylesheet" href="css/main.css">-->
+    <!--<script src="js/lib.js"></script>-->
+    <!--<script src="js/main.js"></script>-->
+  </head>
+
+  <body>
+
+    <!-- app header -->
+    <app-header></app-header>
+
+    <!-- Add your site or application content here -->
+    <div class="container" ng-view=""></div>
+
+
+  </body>
+
+    <!-- vendor libs angular, bootstrap, -->
+    <!--<script src="js/lib.js"></script>-->
+
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular-route/angular-route.min.js"></script>
+    <!--<script src="lib/mobile-angular-ui/dist/js/mobile-angular-ui.min.js"></script>-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
+
+
+    <!--['source/lib/jquery/jquery.min.js','source/lib/angular/angular.min.js','source/lib/angular-route/angular-route.min.js']-->
+
+    <!-- MVC scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers/headerController.js"></script>
+
+    <script src="js/services/customerService.js"></script>
+    <script src="js/services/productService.js"></script>
+    <script src="js/services/modalService.js"></script>
+
+    <script src="js/controllers/customersController.js"></script>
+    <script src="js/controllers/productsController.js"></script>
+    <script src="js/controllers/customerEditController.js"></script>
+    <script src="js/controllers/productEditController.js"></script>
+    <!--<script src="js/controllers/datePickerController.js"></script>-->
+
+</html>
