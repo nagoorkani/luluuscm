@@ -1,0 +1,31 @@
+db.orders.insert(
+[
+    {
+        "id": 1,
+        "orderDate": ISODate("2013-11-16T00:00:00Z"),
+        "customerId": 1,
+        "items": [
+            { "title": "iPad 3", "qty": 3, "price": 399.00 },
+            { "title": "iPhone 4s", "qty": 2, "price": 299.00 },
+            { "title": "iPhone 5c", "qty": 1, "price": 699.00 },
+        ]
+    },
+    {
+        "id": 1,
+        "orderDate": ISODate("2014-11-16T00:00:00Z"),
+        "customerId": 1,
+        "items": [
+        { "title": "iPhone 4s", "qty": 2, "price": 299.00 },
+        { "title": "iPhone 5c", "qty": 1, "price": 599.00 },
+        ]
+    },
+    {
+        "id": 1,
+        "orderDate": ISODate("2012-11-16T00:00:00Z"),
+        "customerId": 1,
+        "items": [
+            { "title": "iPhone 5s", "qty": 1, "price": 699.00 },
+        ]
+    }
+])
+

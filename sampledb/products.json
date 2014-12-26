@@ -1,0 +1,24 @@
+db.products.insert(
+[
+    {
+        "id": 1,
+        "title": "iPad 3",
+        "desc": "Apple iPad 3rd generation",
+        "price": 399.00,
+        "qty": 10
+    },
+    {
+        "id": 2,
+        "title": "iPhone 4s",
+        "desc": "Apple 4the gen with A4 processor",
+        "price": 499.00,
+        "qty": 50
+    },
+    {
+        "id": 3,
+        "title": "iPhone 5s",
+        "desc": "The most advanced mobile device with finger print scanner",
+        "price": 899.00,
+        "qty": 25
+    }
+])

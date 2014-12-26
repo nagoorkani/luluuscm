@@ -1,0 +1,6 @@
+.idea
+*.workspacexml
+.DS_Store
+build/
+npm-debug.log
+node_modules

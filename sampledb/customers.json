@@ -1,0 +1,5 @@
+db.customers.insert(
+[{ "id" : 1, "name" : "John", "business" : "XYZ retailers", "email" : "john@gmail.com", "address" : "3/4, York ave", "city" : "Edina", "zip" : 55435, "state" : "Minnesota" },
+{ "id" : 2, "name" : "Scott", "business" : "Loon mobies", "email" : "scott@gmail.com", "address" : "Galaghar drive", "city" : "Minneapolis", "zip" : 55401, "state" : "Minnesota" },
+{ "id" : 3, "name" : "Ahsan", "business" : "luluu mobiles",  "email" : "ahsan@gmail.com", "address" : "7/2, I Main road",  "city" : "Bangalore", "zip" : 560032, "state" : "Karnataka"}
+])
