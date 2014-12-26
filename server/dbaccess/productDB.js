@@ -12,7 +12,7 @@ module.exports = {
 
 
         var count = 0;
-        Product.find({}, { 'productId': 1, 'title': 1, 'desc': 1, 'date': 1, 'price': 1, 'availableQty': 1 },
+        Product.find({}, { 'productId': 1, 'title': 1, 'desc': 1, 'purchasedDate': 1, 'dealerPrice': 1, 'availableQty': 1 },
             function (err, products) {
                 count = products.length;
             })
@@ -39,12 +39,12 @@ module.exports = {
 
         var product = new Product();
         //product.id           = req_body.id ;      // auto generated
-        product.title        = req_body.title;
-        product.desc         = req_body.desc;
-        product.date         = req_body.date;
-        product.unitPrice    = req_body.unitPrice;
-        product.dealerPrice  = req_body.dealerPrice;
-        product.availableQty = req_body.availableQty;
+        product.title           = req_body.title;
+        product.desc            = req_body.desc;
+        product.purchasedDate   = req_body.purchasedDate;
+        product.unitPrice       = req_body.unitPrice;
+        product.dealerPrice     = req_body.dealerPrice;
+        product.availableQty    = req_body.purchasedQty;
         product.purchasedUnit   = req_body.purchasedUnit;
         product.purchasedQty    = req_body.purchasedQty;
         product.discountsCash   = req_body.discountsCash;
@@ -71,10 +71,10 @@ module.exports = {
             product.productId    = req_body.id || product.id;
             product.title        = req_body.title || product.title;
             product.desc         = req_body.desc || product.desc ;
-            product.date         = req_body.date || product.date ;
+            product.purchasedDate = req_body.purchasedDate || product.purchasedDate ;
             product.unitPrice    = req_body.unitPrice || product.unitPrice ;
             product.dealerPrice  = req_body.dealerPrice || product.dealerPrice ;
-            product.availableQty = req_body.availableQty || product.availableQty ;
+            product.availableQty = req_body.purchasedQty || product.purchasedQty ;  // TODO: calculate from orders
             product.purchasedUnit   = req_body.purchasedUnit || product.purchasedUnit ;
             product.purchasedQty    = req_body.purchasedQty || product.purchasedQty ;
             product.discountsCash   = req_body.discountsCash || product.discountsCash ;

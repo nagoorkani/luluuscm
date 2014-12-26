@@ -21,9 +21,9 @@ app.use(cookieParser());
 app.use(methodOverride());
 app.use(express.static(path.join(__dirname + '/../')));
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+//// view engine setup
+//app.set('views', path.join(__dirname, 'views'));
+//app.set('view engine', 'jade');
 
 // Database
 var mongoose =  require('mongoose'), autoIncrement = require('mongoose-auto-increment');

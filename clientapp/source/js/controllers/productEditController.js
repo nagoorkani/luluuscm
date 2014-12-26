@@ -18,7 +18,6 @@
             if ( productId > 0 ) {
                 getProduct(productId);
             } else {
-                console.log("New product");
                 productService.newProduct().then(function (product) {
                     $scope.product = product;
                 });

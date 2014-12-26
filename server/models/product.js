@@ -10,7 +10,7 @@ var ProductSchema = new Schema({
     productId:          { type: Number },
     title:              { type: String, required: true, trim: true },
     desc:               { type: String, required: true, trim: true, default: "description about product" },
-    date:               { type: Date, default: Date.now },
+    purchasedDate:       { type: Date, default: Date.now },
     unitPrice:          { type: Number, default: 0.00 },
     dealerPrice:        { type: Number, default: 0.00 },
     availableQty:       { type: Number, default: 0 },
