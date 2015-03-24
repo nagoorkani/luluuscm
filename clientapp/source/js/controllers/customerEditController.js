@@ -37,7 +37,7 @@
 
         $scope.saveCustomer = function () {
             if ($scope.editForm.$valid) {
-                if (!$scope.customer.id) {
+                if (!$scope.customer.customerId) {
                     customerService.insertCustomer($scope.customer).then(processSuccess, processError);
                 }
                 else {
@@ -57,7 +57,7 @@
 
             modalService.showModal({}, modalOptions).then(function (result) {
                 if (result === 'ok') {
-                    customerService.deleteCustomer($scope.customer.id).then(function () {
+                    customerService.deleteCustomer($scope.customer.customerId).then(function () {
                         onRouteChangeOff(); //Stop listening for location changes
                         $location.path('/customers');
                     }, processError);
@@ -95,6 +95,9 @@
             $scope.title = 'Edit';
             $scope.buttonText = 'Update';
             startTimer();
+
+            // route to customer home page
+            $location.path('/customers');
         }
 
         function processError(error) {

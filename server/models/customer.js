@@ -7,7 +7,7 @@ var Schema      = mongoose.Schema;
 var autoIncrement = require('mongoose-auto-increment');
 
 var CustomerSchema = new Schema({
-    customerId: { type: Number, required: true, unique: true },
+    customerId: { type: Number },
     name:       { type: String, required: true, trim: true },
     business:   { type: String, required: true, trim: true },
     email:      { type: String, required: true, trim: true },
@@ -45,7 +45,6 @@ module.exports = mongoose.model('Customer', CustomerSchema);
 //        next();
 //    }
 //});
-
 
 //{
 //    "firstName": "John",

@@ -60,10 +60,10 @@ module.exports = {
     updateCustomer: function (id, req_body, callback) {
         console.log("~~~~~ updateCustomer ~~~~~");
 
-        Customer.findOne({ 'id': id}, { 'id': 1, 'name': 1}, function (err, customer) {
+        Customer.findOne({ 'customerId': id}, { 'customerId': 1, 'name': 1}, function (err, customer) {
             if (err) return callback(err);
 
-            customer.customerId = req_body.id || customer.id;
+            customer.customerId = req_body.id || customer.customerId;
             customer.name       = req_body.name || customer.name;
             customer.business   = req_body.business || customer.business;
             customer.email      = req_body.email || customer.email;
@@ -71,7 +71,6 @@ module.exports = {
             customer.city       = req_body.city || customer.city;
             customer.zip        = req_body.zip || customer.zip;
             customer.state      = req_body.state || customer.state;
-
 
             customer.save(function (err) {
                 if (err) { console.log('Error in updating customer'); return callback(err); }
@@ -85,7 +84,7 @@ module.exports = {
     deleteCustomer: function (id, callback) {
         console.log("~~~~~ deleteCustomer ~~~~~");
 
-        Customer.remove({ 'id': id }, function (err, customer) {
+        Customer.remove({ 'customerId': id }, function (err, customer) {
             callback(null);
         })
     }
