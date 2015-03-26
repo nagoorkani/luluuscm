@@ -30,3 +30,35 @@
 .shake {
     animation: shake 400ms ease-in-out;
 }
+
+.button {
+    -moz-appearance: button;
+    /* Firefox */
+    -webkit-appearance: button;
+    /* Safari and Chrome */
+    padding: 10px;
+    margin: 10px;
+    width: 70px;
+}
+.drop-box {
+    background: #F8F8F8;
+    border: 5px dashed #DDD;
+    height: 75px;
+    text-align: center;
+    padding-top: 15px;
+    margin: 0px;
+}
+.preview-box {
+    height: 70px;
+    text-align: center;
+    margin-top: 10px;
+}
+.dragover {
+    border: 5px dashed blue;
+}
+.thumb {
+    float: left;
+    width: 64px;
+    height: 56px;
+    padding-right: 10px;
+}

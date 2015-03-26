@@ -66,7 +66,7 @@
         <!-- List group -->
         <div class="col-md-12 column">
             <div class="media" data-ng-repeat="product in products">
-                <a href="#/products/{{product.id}}" class="pull-left"><img src="http://lorempixel.com/64/64/" class="media-object img-rounded" alt='' /></a>
+                <a href="#/products/{{product.productId}}" class="pull-left"><img ng-src="{{product.img}}" fallback-src="img/newproduct64.png" class="media-object img-rounded thumb" alt='' /></a>
 
                 <span class="label label-primary pull-right"> Rs. {{ product.dealerPrice }}</span>
 

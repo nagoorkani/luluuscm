@@ -10,7 +10,7 @@ var ProductSchema = new Schema({
     productId:          { type: Number },
     title:              { type: String, required: true, trim: true },
     desc:               { type: String, required: true, trim: true, default: "description about product" },
-    purchasedDate:       { type: Date, default: Date.now },
+    purchasedDate:      { type: Date, default: Date.now },
     unitPrice:          { type: Number, default: 0.00 },
     dealerPrice:        { type: Number, default: 0.00 },
     availableQty:       { type: Number, default: 0 },
@@ -18,7 +18,7 @@ var ProductSchema = new Schema({
     purchasedQty:       { type: Number, default: 0 },
     discountsCash:      { type: Number, default: 0 },
     discountsOthers:    { type: Number, default: 0 },
-    image:              { type: String }
+    img:                { type: String }
 });
 
 ProductSchema.plugin(autoIncrement.plugin, {model: 'Product', field: 'productId', startAt: 6000, incrementBy: 1});

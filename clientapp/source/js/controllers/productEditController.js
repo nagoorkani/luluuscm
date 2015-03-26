@@ -3,7 +3,7 @@
  */
 
 (function () {
-    var ProductEditController = function ($rootScope, $scope, $location, $routeParams, productService, $timeout, modalService) {
+    var ProductEditController = function ($rootScope, $scope, $location, $routeParams, productService, $timeout, modalService, $upload, $http) {
 
         var productId = parseInt($routeParams.productId) || 0;
         var timer, onRouteChangeOff;
@@ -13,6 +13,8 @@
         $scope.buttonText   = (productId > 0) ? 'Update' : 'Add';
         $scope.updateStatus = false;
         $scope.errorMessage = '';
+        $scope.productImage = '';
+        $scope.fileReaderSupported = window.FileReader != null ;
 
         function init() {
             if ( productId > 0 ) {
@@ -27,6 +29,10 @@
 
         }
 
+        $scope.setDate = function(date) {
+            $scope.purchasedDate = date;
+        };
+
         function getProduct(id) {
             productService.getProduct(id)
                 .then(function (product) {
@@ -38,7 +44,7 @@
 
         $scope.saveProduct = function () {
             if ($scope.editForm.$valid) {
-                if (!$scope.product.id) {
+                if (!$scope.product.productId) {
                     productService.insertProduct($scope.product).then(processSuccess, processError);
                 }
                 else {
@@ -58,12 +64,54 @@
 
             modalService.showModal({}, modalOptions).then(function (result) {
                 if (result === 'ok') {
-                    productService.deleteProduct($scope.product.id).then(function () {
+                    productService.deleteProduct($scope.product.productId).then(function () {
                         onRouteChangeOff(); //Stop listening for location changes
                         $location.path('/products');
                     }, processError);
                 }
             });
+        };
+
+        $scope.$watch('files', function () {
+            $scope.upload($scope.files);
+        });
+
+        $scope.upload = function (files) {
+            var url = 'http://localhost:6767';
+            if (files && files.length) {
+                for (var i = 0; i < files.length; i++) {
+                    var file = files[i];
+                    $upload.upload({
+                        url: url + '/api/photo',
+                        file: file
+                    }).progress(function (evt) {
+                        var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                        console.log('progress: ' + progressPercentage + '% ' +
+                        evt.config.file.name);
+                    }).success(function (data, status, headers, config) {
+                        $scope.product.img = url + "/" + data.file; // New file uploaded...
+                        console.log('Old file ' + config.file.name + ', New file ' + $scope.product.img  +' uploaded. Response: ' +
+                        JSON.stringify(data));
+                    });
+                }
+            }
+        };
+
+        $scope.generateThumb = function(file) {
+            if (file != null) {
+                if ($scope.fileReaderSupported && file.type.indexOf('image') > -1) {
+                    $timeout(function() {
+                        var fileReader = new FileReader();
+                        fileReader.readAsDataURL(file);
+                        fileReader.onload = function(e) {
+                            $timeout(function() {
+                                file.dataUrl = e.target.result;
+                                //$scope.upload(file);
+                            });
+                        }
+                    });
+                }
+            }
         };
 
         function routeChange(event, newUrl) {
@@ -113,7 +161,7 @@
         init();
     }
 
-    ProductEditController.$inject = ['$rootScope', '$scope', '$location', '$routeParams', 'productService', '$timeout', 'modalService'];
+    ProductEditController.$inject = ['$rootScope', '$scope', '$location', '$routeParams', 'productService', '$timeout', 'modalService', '$upload', '$http'];
 
     angular.module('luluuApp').controller('ProductEditController', ProductEditController);
 }());

@@ -111,7 +111,7 @@
                     </div>
                     <div class="col-md-10">
                         <p class="input-group">
-                            <input type="date" name="purchasedDate" class="form-control" data-ng-model="product.purchasedDate" />
+                            <input type="date" name="purchasedDate" class="form-control" data-ng-model="product.purchasedDate" data-date-format="dd/mm/yyyy" value="{{date | date:MM/dd/yyyy}}" maxdate="todays"/>
                             <!--<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />-->
                             <!--<span class="input-group-btn">-->
                                 <!--<button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>-->
@@ -126,11 +126,27 @@
                         Product image:
                     </div>
                     <div class="col-md-10">
-                        <input type="file" accept="image/*" image="image2"
-                               resize-max-height="300"
-                               resize-max-width="250"
-                               resize-quality="0.7" />
-                        <img ng-show="image2" ng-src="{{image2.url}}" type="{{image2.file.type}}" />
+                        <div class="col-md-3">
+                            <div ng-file-drop ng-file-select ng-model="files" class="drop-box"
+                             drag-over-class="dragover" ng-multiple="true" allow-dir="true"
+                             accept="image/*" ng-file-change="generateThumb(files[0], $files)">Drop image or click to upload</div>
+                        </div>
+                        <div class="col-md-9 pull-left">
+                            <div class="preview-box">
+                                <img ng-show="files[0].dataUrl != null" ng-src="{{files[0].dataUrl}}" class="thumb">
+                            </div>
+                        </div>
+                        <!--<div>-->
+                        <!--<input type="file" accept="image/*" image="image2"-->
+                        <!--resize-max-height="200"-->
+                        <!--resize-max-width="150"-->
+                        <!--resize-quality="0.7" ng-file-select="upload($files)"/>-->
+                        <!--<img ng-show="image2" ng-src="{{image2.resized.dataURL}}" fallback-source="{{productImage}}" />-->
+                        <!--</div>-->
+                        <!--<input type="file" accept="image/*" image="image2"-->
+                        <!--resize-max-height="200"-->
+                        <!--resize-max-width="150"-->
+                        <!--resize-quality="0.7" onchange="angular.element(this).scope().loadImage(this);"/>-->
                     </div>
                 </div>
                 <br />
@@ -152,7 +168,7 @@
                     <div class="col-md-12">
                         <button type="submit" class="btn btn-primary" data-ng-click="saveProduct()" ng-disabled="editForm.$invalid || !editForm.$dirty">{{buttonText}}</button>
                         &nbsp;&nbsp;
-                        <button class="btn btn-danger" data-ng-if="product.id > 0" data-ng-click="deleteProduct()">Delete</button>
+                        <button class="btn btn-danger" data-ng-if="product.productId > 0" data-ng-click="deleteProduct()">Delete</button>
                     </div>
                 </div>
                 <br />

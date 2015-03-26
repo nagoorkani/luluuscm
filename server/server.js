@@ -36,12 +36,14 @@ var routes      = require('./routes/index');
 var customers   = require('./routes/customers');
 var orders      = require('./routes/orders');
 var products    = require('./routes/products');
+var upload      = require('./routes/upload');
 
 // route config
 app.use('/', routes);
 app.use('/customers', customers);
 app.use('/orders', orders);
 app.use('/products', products);
+app.use('/api', upload);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -73,7 +75,6 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
 
 module.exports = app;
 

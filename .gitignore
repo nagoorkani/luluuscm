@@ -9,6 +9,10 @@ build
 clientapp/source/lib
 clientapp/source/js/templates.js
 
+# ignore uploaded files
+#######################
+uploads/*
+
 .DS_Store
 build/*
 secret.json

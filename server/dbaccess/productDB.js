@@ -3,6 +3,7 @@
  */
 
 var Product = require('../models/product');
+var fs      = require('fs');
 
 module.exports = {
 
@@ -10,9 +11,8 @@ module.exports = {
     getProducts: function (callback) {
         console.log("~~~~~ getproducts ~~~~~");
 
-
         var count = 0;
-        Product.find({}, { 'productId': 1, 'title': 1, 'desc': 1, 'purchasedDate': 1, 'dealerPrice': 1, 'availableQty': 1 },
+        Product.find({}, {},
             function (err, products) {
                 count = products.length;
             })
@@ -49,7 +49,7 @@ module.exports = {
         product.purchasedQty    = req_body.purchasedQty;
         product.discountsCash   = req_body.discountsCash;
         product.discountsOthers = req_body.discountsOthers;
-        product.image           = req_body.image;     //TODO: TBD
+        product.img             = req_body.img;
 
         product.save(function (err, product) {
             if (err) {
@@ -68,7 +68,7 @@ module.exports = {
         Product.findOne({ 'productId': id}, { 'id': 1, 'title': 1}, function (err, product) {
             if (err) return callback(err);
 
-            product.productId    = req_body.id || product.id;
+            product.productId    = req_body.id || product.productId;
             product.title        = req_body.title || product.title;
             product.desc         = req_body.desc || product.desc ;
             product.purchasedDate = req_body.purchasedDate || product.purchasedDate ;
@@ -79,7 +79,7 @@ module.exports = {
             product.purchasedQty    = req_body.purchasedQty || product.purchasedQty ;
             product.discountsCash   = req_body.discountsCash || product.discountsCash ;
             product.discountsOthers = req_body.discountsOthers || product.discountsOthers ;
-            product.image           = req_body.image || product.image ;
+            product.img             = req_body.img || product.img;
 
             product.save(function (err) {
                 if (err) { console.log('Error in updating product'); return callback(err); }

@@ -2,7 +2,7 @@
  * Created by z062281 on 12/11/14.
  */
 
-angular.module('imageupload', [])
+angular.module('luluuApp')
     .directive('image', function($q) {
         'use strict'
 

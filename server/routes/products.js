@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-
 var productDB  = require('../dbaccess/productDB');
 
 // -------------- GET all customers --------------

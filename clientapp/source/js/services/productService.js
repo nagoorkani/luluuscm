@@ -39,7 +39,7 @@
         };
 
         factory.updateProduct = function (product) {
-            return $http.put(baseUrl + '/products/' + product.id, product).then(function (status) {
+            return $http.put(baseUrl + '/products/' + product.productId, product).then(function (status) {
                 return status.data;
             });
         };
