@@ -24,4 +24,9 @@ Setting up the database
   > db.customers.insert( [{....}] );
   
   All set for database... :-)
+
+Install node dependencies
+
+    $ npm install
+    $ node server/server.js
   
