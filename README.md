@@ -30,3 +30,4 @@ Install node dependencies
     $ npm install
     $ node server/server.js
   
+  open a browser and run http://localhost:6767/
